@@ -11,19 +11,25 @@ const searchBook = ()=> {
 
 const displaySearchResult = books =>{
      console.log(books)
+     const resultNumber = document.getElementById('p')
     const searchResult = document.getElementById('search-result');
     const errorResult = document.getElementById('error')
+    
+     resultNumber.innerText =`Search Number: ${books.length}`
+    
+    
+    
     if(books.length === 0){
         error.innerHTML= '<p>There is no result found.Please search something meaningful</p>'
     }
     else{
         books.forEach(book =>{
-        
+        error.innerHTML = ''
             const div = document.createElement('div');
             div.classList.add('col');
             div.innerHTML = 
             `
-            <div class="card h-100">
+               <div class="card h-100">
                 <img src="" class="card-img-top" alt="...">
              <div class="card-body">
                  <h5 class="card-title">Books Name: ${book.title}</h5>
@@ -33,8 +39,10 @@ const displaySearchResult = books =>{
              </div>
            </div>
             `;
+         
             searchResult.appendChild(div)
             searchResult.appendChild(errorResult)
+            
         })
     }
 
@@ -44,26 +52,7 @@ const displaySearchResult = books =>{
 
 
 
-// ${data.docs[0].title}
 
 
 
 
-
-
-// data.docs
-
-// searchBook('title')
-
-// const searchBook = ()=> {
-//     const searchField = document.getElementById('search-field')
-//     const searchText = searchField.value;
-    
-//     searchField.value = '';
-//     const url = `http://openlibrary.org/search.json?q=javascript`
-//     fetch(url)
-//     .then(res => res.json())
-//     .then(data => console.log(data.docs[0].seed))   
-// }
-
-//
