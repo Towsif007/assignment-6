@@ -8,9 +8,9 @@ const searchBook = ()=> {
     .then(res => res.json())
     .then(data => displaySearchResult(data.docs))   
 }
-
+    // Showing Books 
 const displaySearchResult = books =>{
-     console.log(books)
+    //  console.log(books)
      const resultNumber = document.getElementById('p')
     const searchResult = document.getElementById('search-result');
     const errorResult = document.getElementById('error')
@@ -30,9 +30,9 @@ const displaySearchResult = books =>{
             div.innerHTML = 
             `
                <div class="card h-100">
-                <img src="" class="card-img-top" alt="...">
+                <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top" alt="...">
              <div class="card-body">
-                 <h5 class="card-title">Books Name: ${book.title}</h5>
+              <h5 class="card-title">Books Name: ${book.title}<h5>
                  <h5 class="card-title">Author Name: ${book.author_name[0]}</h5>
                  <h5 class="card-title">Publisher Name: ${book.publisher[0]}</h5>
                  <h5 class="card-title">First Publish Year: ${book.first_publish_year}</h5>
@@ -44,10 +44,7 @@ const displaySearchResult = books =>{
             searchResult.appendChild(errorResult)
             
         })
-    }
-
-
-    
+    }    
 }
 
 
